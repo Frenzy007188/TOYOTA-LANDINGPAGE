@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota Motors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel ="icon" href = "https://www.toyota.com/imgix/responsive/images/mlp/colorizer/2021/Supra/1J71.png?bg=fff&fm=webp&w=1024" type = "image/x-icon"
+</head>  
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Toyota Motors</div>
+        <div class="links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+            <a href="#help">Help</a>
+            <a href="#cart">Cart</a>
+            <span class="user-info" id="user-info">Guest | <a href="#auth">Login</a></span>
+        </div>
+    </nav>
+
+    <!-- Auth Section -->
+    <section id="auth">
+        <div class="auth-container">
+            <h1>Toyota Login</h1>
+            <div class="auth-form" id="login-form">
+                <input type="text" id="login-username" placeholder="Username">
+                <input type="password" id="login-password" placeholder="Password">
+                <button onclick="login()">Login</button>
+                <div class="toggle-auth" onclick="toggleAuth()">New Driver? Sign Up</div>
+            </div>
+            <div class="auth-form" id="signup-form" style="display: none;">
+                <h1>Toyota Sign Up</h1>
+                <input type="text" id="signup-username" placeholder="Username">
+                <input type="password" id="signup-password" placeholder="Password">
+                <button onclick="signup()">Sign Up</button>
+                <div class="toggle-auth" onclick="toggleAuth()">Back to Login</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content (Locked until login) -->
+     
+    <div class="main-content" id="main-content">
+        <!-- Home Section -->
+        <section id="home">
+            <h2>Welcome to Toyota</h2>
+            <p>Unleash your drive with the power of innovation and styleLegendary reliability, impressive EPA-estimated fuel economy ratings, refined riding characteristics, and standout style are the hallmarks of these Toyota Compact Cars.</p>
+            <button onclick="scrollToSection('products')">Discover Our Lineup</button>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Toyota</h2>
+            <div class="slider-container">
+                <div class="card" id="slider-card">
+                    <img src="car11.jpeg" alt="Toyota Supra">
+                    <p>Toyota Supra - Pure Performance</p>
+                </div>
+                <div class="slider-controls">
+                    <button id="prev-btn" onclick="prevSlide()">&#9664;</button>
+                    <button id="next-btn" onclick="nextSlide()">&#9654;</button>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const slides = [
+                { img: "car11.jpeg", text: "Toyota Supra - Pure Performance" },
+                { img: "darkknightcar", text: "Toyota Corolla - Timeless Reliability" },
+                { img: "car8", text: "Toyota Camry - Comfort and Style" },
+                { img: "car7", text: "Toyota RAV4 - Adventure Ready" },
+                { img: "cybercar", text: "Toyota Highlander - Family Friendly" },
+                { img: "car7", text: "Toyota Tundra - Rugged Power" }
+            ];
+
+            let currentSlide = 0;
+
+            function updateSlide() {
+                const sliderCard = document.getElementById("slider-card");
+                sliderCard.innerHTML = `
+                    <img src="${slides[currentSlide].img}" alt="${slides[currentSlide].text}">
+                    <p>${slides[currentSlide].text}</p>
+                `;
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                updateSlide();
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateSlide();
+            }
+
+           
+            updateSlide();
+        </script>
+
+        <style>
+            .slider-container {
+                text-align: center;
+                position: relative;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .card {
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 55px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                background-color:  #ffffff ;
+            }
+
+            .card img {
+                max-width: 100%;
+                border-radius: 8px;
+                width: 100%;
+            }
+
+            .card p{
+                margin-top: 20px;
+                font-size: 16px;
+                color: #000000;
+                font-weight: bold
+            }
+
+            .slider-controls {
+                margin-top: 20px;
+                justify-content:space-between ;
+                text-align: center;
+            }
+
+            .slider-controls button {
+                background-color: #333;
+                color: #ffffff;
+                border: none;
+                padding: 12px 22px;
+                justify-content: space-between;
+                margin: 0 5px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            .slider-controls button:hover {
+                background-color: #555;
+            }
+        </style>
+
+        <!-- Products Section -->
+        <section id="products">
+            <h2>Toyota Lineup</h2>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="sportcar.jpeg" alt="Toyota Supra">
+                    <h3>Toyota Supra</h3>
+                    <p>$50,000 - Pure Performance</p>
+                    <button class="add-to-cart" data-name="Toyota Supra" data-price="50000">Add to Cart</button>
+                </div>
+
+                <div class="product-item">
+                    <img src="oldcar" alt="Toyota Tundra">
+                    <h3>Toyota Tundra</h3>
+                    <p>$45,000 - Rugged Power</p>
+                    <button class="add-to-cart" data-name="Toyota Tundra" data-price="45000">Add to Cart</button>
+                </div>
+
+                <div class="product-item">
+                    <img src="toyota5.jpeg" alt="Toyota Corolla">
+                    <h3>Toyota Corolla</h3>
+                    <p>$20,000 - Timeless Reliability</p>
+                    <button class="add-to-cart" data-name="Toyota Corolla" data-price="20000">Add to Cart</button>
+                </div>
+
+                <div class="product-item">
+                    <img src="toyota3.jpeg" alt="Toyota Corolla">
+                    <h3>Toyota Corolla</h3>
+                    <p>$20,000 - Timeless Reliability</p>
+                    <button class="add-to-cart" data-name="Toyota Corolla" data-price="20000">Add to Cart</button>
+                </div>
+
+                <div class="product-item">
+                    <img src="toyota2.jpeg" alt="Toyota Corolla">
+                    <h3>Toyota Corolla</h3>
+                    <p>$20,000 - Timeless Reliability</p>
+                    <button class="add-to-cart" data-name="Toyota Corolla" data-price="20000">Add to Cart</button>
+                </div>
+
+                <div class="product-item">
+                    <img src="toyota1.jpeg" alt="Toyota Corolla">
+                    <h3>Toyota Corolla</h3>
+                    <p>$20,000 - Timeless Reliability</p>
+                    <button class="add-to-cart" data-name="Toyota Corolla" data-price="20000">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <form class="contact-form" onsubmit="submitContact(event)">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Help Section -->
+        <section id="help">
+            <h2>Help Center</h2>
+            <div class="faq">
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <h3>How do I customize my Toyota?</h3>
+                    <p class="faq-answer">After adding to cart, visit the "Build Your Toyota" page (coming soon).</p>
+                </div>
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <h3>What’s Toyota’s EV plan?</h3>
+                    <p class="faq-answer">We’re rolling out 30 electric models by 2030—stay tuned!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart">
+            <h2>Your Cart</h2>
+            <div class="cart-container" id="cart-container">
+            </div>
+            <div class="cart-total" id="cart-total">Total: $0</div>
+        </section>
+    </div>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

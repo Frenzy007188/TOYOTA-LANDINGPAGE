@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: url(blackcarr) no-repeat center/cover;
+    color: #fff;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 25px 50px;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border-bottom: 1px solid #e41e26; /* Toyota red */
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #e41e26;
+}
+
+.user-info {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Auth Section */
+#auth {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #0d0d0d, #1a1a1a);
+    text-align: center;
+    margin-top: 60px;
+    background: url(cybercar) no-repeat center/cover;
+}
+
+.auth-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    
+}
+
+.auth-container h1 {
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 16px;
+}
+
+.auth-form button {
+    padding: 15px 30px;
+    background: #ffffff;
+    border: none;
+    color: #e41e26;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.auth-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #e41e26;
+}
+
+.toggle-auth {
+    margin-top: 20px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Main Content (Hidden until logged in) */
+.main-content {
+    display: none;
+}
+
+section {
+    padding: 100px 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+h2 {
+    font-size: 48px;
+    color: #e41e26;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Home Section */
+#home {
+    background: url('white.jpeg') no-repeat center/cover;
+    text-align: center;
+    position: relative;
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+}
+
+#home h2, #home p, #home button {
+    position: relative;
+    z-index: 1;
+}
+
+#home p {
+    font-size: 20px;
+    max-width: 800px;
+    margin-bottom: 50px;
+     color: #ccc;
+    
+}
+
+#home button {
+    padding: 15px 40px;
+    background: #ccc;
+    border: none;
+    color: #000000;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+#home button:hover {
+    transform: scale(1.1);
+}
+
+#about{
+    background-color: #000000;
+}
+
+#about h2{
+    color: #ffffff;
+    font-weight: semi bold;
+    text-align: center;
+}
+
+
+/* Products Section */
+#products {
+    background: #0d0d0d;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.product-item {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 10px 20px rgba(228, 30, 38, 0.3);
+}
+
+.product-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-item h3 {
+    margin: 20px 0;
+    font-size: 24px;
+    color: #fff;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.product-item button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #e41e26;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.product-item button:hover {
+    background: #b3151d;
+}
+
+/* Contact Section */
+#contact {
+    background: #1a1a1a;
+}
+
+.contact-form {
+    max-width: 700px;
+    width: 100%;
+    position: relative;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    animation: formPop 0.5s ease-out;
+}
+
+@keyframes formPop {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: none;
+    border-bottom: 2px solid #e41e26;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: #fff;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+}
+
+.contact-form button {
+    padding: 15px 40px;
+    background: #e41e26;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.contact-form button:hover {
+    background: #fff;
+    color: #e41e26;
+    box-shadow: 0 0 20px #e41e26;
+}
+
+/* Help Section */
+#help {
+    background: #0d0d0d;
+}
+
+.faq {
+    max-width: 900px;
+    width: 100%;
+}
+
+.faq-item {
+    margin: 20px 0;
+    padding: 25px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.faq-item:hover {
+    background: #252525;
+}
+
+.faq-item h3 {
+    font-size: 20px;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 15px;
+    color: #ccc;
+    font-size: 16px;
+}
+
+/* Cart Section */
+#cart {
+    background: #1a1a1a;
+}
+
+.cart-container {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-item {
+    background: #252525;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.cart-item:hover {
+    transform: translateY(-5px);
+}
+
+.cart-item span {
+    font-size: 18px;
+    color: #fff;
+}
+
+.cart-item button {
+    padding: 10px 20px;
+    background: #e41e26;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.cart-item button:hover {
+    background: #b3151d;
+}
+
+.cart-total {
+    font-size: 24px;
+    color: #e41e26;
+    text-align: right;
+    margin-top: 20px;
+}
